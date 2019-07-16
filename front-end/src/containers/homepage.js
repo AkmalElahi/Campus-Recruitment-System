@@ -28,24 +28,24 @@ class Home extends Component {
         if (accountType === 'company') {
             return (
                 <div>
-     <nav className="nav-wrapper">
-                <div className="container">
-                    <Link to="/" className="brand-logo">CRS</Link>
-                    
-                    <ul className="right hide-on-med-and-down">
-                        <li><Link to="/login" className="btn btn-link">Logout</Link></li>
-                        <li>{accountType === 'company' && <Link to="/addjob" className="btn btn-link">Post a job</Link>}</li>
-                    </ul>
-                </div>
-            </nav>
-                <div className="container">
-                    <div className="row">
-                    <div className="col s12">
-                    {profiles.loading && <em>Loading users...</em>}
-                    {profiles.error && <span className="text-danger">ERROR: {profiles.error}</span>}
-                    <h3 className="center">Welome {user && user}!</h3>
-                    <h3 className="center"> List of registered Students</h3>
-                    {/* {profiles.loading && <em>Loading users...</em>}
+                    <nav className="nav-wrapper">
+                        <div className="container">
+                            <Link to="/" className="brand-logo">CRS</Link>
+
+                            <ul className="right hide-on-med-and-down">
+                                <li><Link to="/login" className="btn btn-link">Logout</Link></li>
+                                <li>{accountType === 'company' && <Link to="/addjob" className="btn btn-link">Post a job</Link>}</li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col s12">
+                                {profiles.loading && <em>Loading users...</em>}
+                                {profiles.error && <span className="text-danger">ERROR: {profiles.error}</span>}
+                                <h3 className="center">Welome {user && user}!</h3>
+                                <h3 className="center"> List of registered Students</h3>
+                                {/* {profiles.loading && <em>Loading users...</em>}
                     {profiles.error && <span className="text-danger">ERROR: {profiles.error}</span>}
                     {profiles.profiles &&
                         <div>
@@ -60,55 +60,55 @@ class Home extends Component {
                             )}
                         </div>
                     } */}
-                
-                <div className="col s12">
-                    {profiles.profiles && profiles.profiles.map(student => (
-                        <ul className="collection" key={student._id}>
-                            <li className="collection-item avatar">
-                                <img src={image} alt="img" className="circle" />
-                                <span className="title">{student.name}</span>
-                                <p>{student.email}</p>
-                            
-                                    <button className=" secondary-content btn-small waves-effect waves-light teal  "> <Link className="white-text" to={{
-                                    pathname: '/student',
-                                    student:
-                                        student
-                                }}>view more</Link></button>
-                            </li>
-                        </ul>
-                    ))}
-                </div>
+
+                                <div className="col s12">
+                                    {profiles.profiles && profiles.profiles.map(student => (
+                                        <ul className="collection" key={student._id}>
+                                            <li className="collection-item avatar">
+                                                <img src={image} alt="img" className="circle" />
+                                                <span className="title">{student.name}</span>
+                                                <p>{student.email}</p>
+
+                                                <button className=" secondary-content btn-small waves-effect waves-light teal  "> <Link className="white-text" to={{
+                                                    pathname: '/student',
+                                                    student:
+                                                        student
+                                                }}>view more</Link></button>
+                                            </li>
+                                        </ul>
+                                    ))}
+                                </div>
 
 
-                    
-                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-              );
+            );
         }
         if (accountType === "student") {
             return (
                 <div>
-     <nav className="nav-wrapper">
-                <div className="container">
-                    <Link to="/" className="brand-logo">CRS</Link>
-                    
-                    <ul className="right hide-on-med-and-down">
-                        <li><Link to="/login" className="btn btn-link">Logout</Link></li>
-                        <li>{accountType === 'company' && <Link to="/addjob" className="btn btn-link">Post a job</Link>}</li>
-                    </ul>
-                </div>
-            </nav>
-                <div className="container">
-                    
-                    <div className="row">
-                    <div className="col s12">
-                    {profiles.loading && <em>Loading users...</em>}
-                    {profiles.error && <span className="text-danger">ERROR: {profiles.error}</span>}
-                    <h3 className="center">Welome {user && user}!</h3>
-                    <h3 className="center"> List of Companies</h3>
-                    {/* {profiles.loading && <em>Loading users...</em>}
+                    <nav className="nav-wrapper">
+                        <div className="container">
+                            <Link to="/" className="brand-logo">CRS</Link>
+
+                            <ul className="right hide-on-med-and-down">
+                                <li><Link to="/login" className="btn btn-link">Logout</Link></li>
+                                <li>{accountType === 'company' && <Link to="/addjob" className="btn btn-link">Post a job</Link>}</li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div className="container">
+
+                        <div className="row">
+                            <div className="col s12">
+                                {profiles.loading && <em>Loading users...</em>}
+                                {profiles.error && <span className="text-danger">ERROR: {profiles.error}</span>}
+                                <h3 className="center">Welome {user && user}!</h3>
+                                <h3 className="center"> List of Companies</h3>
+                                {/* {profiles.loading && <em>Loading users...</em>}
                     {profiles.error && <span className="text-danger">ERROR: {profiles.error}</span>}
                     {profiles.profiles &&
                         <div>
@@ -123,33 +123,38 @@ class Home extends Component {
                             )}
                         </div>
                     } */}
-                
-                <div className="col s12">
-                    {profiles.profiles && profiles.profiles.map(company => (
-                        <ul className="collection" key={company._id}>
-                            <li className="collection-item avatar">
-                                <img src={image} alt="img" className="circle" />
-                                <span className="title">{company.name}</span>
-                                <p>{company.email}</p>
-                             
-                                <button className=" secondary-content btn-small waves-effect waves-light teal  "> <Link className="white-text" to={{
-                                    pathname: '/company',
-                                    state:{  company:
-                                        company}
-                                }}>view more</Link></button>
-                            </li>
-                        </ul>
-                    ))}
-                </div>
+
+                                <div className="col s12">
+                                    {profiles.profiles && profiles.profiles.map(company => (
+                                        <ul className="collection" key={company._id}>
+                                            <li className="collection-item avatar">
+                                                <img src={image} alt="img" className="circle" />
+                                                <span className="title">{company.name}</span>
+                                                <p>{company.email}</p>
+
+                                                <button className=" secondary-content btn-small waves-effect waves-light teal  "> <Link className="white-text" to={{
+                                                    pathname: '/company',
+                                                    state: {
+                                                        company:
+                                                            company
+                                                    }
+                                                }}>view more</Link></button>
+                                            </li>
+                                        </ul>
+                                    ))}
+                                </div>
 
 
-                    
-                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-              );
+            );
         }
+        return (<div>
+            Home page
+            </div>)
 
     }
 }
